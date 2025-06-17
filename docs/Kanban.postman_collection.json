@@ -1,0 +1,637 @@
+{
+	"info": {
+		"_postman_id": "f30d0b84-5fa3-4a01-9c1a-7fec8318f31c",
+		"name": "Kanban",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44365324"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fname\": \"Ali\",\r\n  \"lname\": \"Khan\",\r\n  \"username\": \"alikhan123\",\r\n  \"email\": \"ali@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ali@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users Data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/auth/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Board",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Ali}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My First Board \"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Board",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTA1OTJhNGM0YTQzMjJlNjNlNWE1MSIsImlhdCI6MTc1MDE1NDQ3NCwiZXhwIjoxNzUwMjQwODc0fQ.eMbBfqKiwrOgba-gdArQoOY1PrCn0NM_HKYSki6Kg5g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My First Board updated\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/boards/685149b282acd89c7a8dedcd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards",
+						"685149b282acd89c7a8dedcd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Boards",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/boards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/boards/685149b282acd89c7a8dedcd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards",
+						"685149b282acd89c7a8dedcd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invite user to board",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"azharli@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/boards/685149b282acd89c7a8dedcd/invite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards",
+						"685149b282acd89c7a8dedcd",
+						"invite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create List On Board",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Todo List\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/boards/68514bbf82acd89c7a8deddd/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards",
+						"68514bbf82acd89c7a8deddd",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lists",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/boards/68514bbf82acd89c7a8deddd/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"boards",
+						"68514bbf82acd89c7a8deddd",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Update List\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/lists/68514beb82acd89c7a8dede5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"lists",
+						"68514beb82acd89c7a8dede5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/lists/68514beb82acd89c7a8dede5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"lists",
+						"68514beb82acd89c7a8dede5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cards",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/lists/68514c8782acd89c7a8dedf0/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"lists",
+						"68514c8782acd89c7a8dedf0",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"My First Card\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/lists/68514c8782acd89c7a8dedf0/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"lists",
+						"68514c8782acd89c7a8dedf0",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cards/68514ccc82acd89c7a8dedf7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"68514ccc82acd89c7a8dedf7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Updated Card\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cards/68514ccc82acd89c7a8dedf7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cards",
+						"68514ccc82acd89c7a8dedf7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Move Card",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "Ali",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTE0ODYzODJhY2Q4OWM3YThkZWRjOCIsImlhdCI6MTc1MDE1NzUxNywiZXhwIjoxNzUwMjQzOTE3fQ.lUGiHNxuuTC5zCJzk9GqBBWMwEe3JtsZbCT4dSeiDJM",
+			"type": "default"
+		},
+		{
+			"key": "Ali",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
